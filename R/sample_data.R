@@ -1,6 +1,15 @@
 #' @title Sample ontology data
 #'
 #' @description Sample \code{\link{data.table}} containing enrichment results (over-representation, ORA) from different databases, which are:
+#' \describe{
+#' \item{DO}{Disease Ontology}
+#' \item{GOBP}{Gene Ontology (GO), Biological Process (BP)}
+#' \item{GOMF}{Gene Ontology (GO), Molecular Function (MF)}
+#' \item{GOCC}{Gene Ontology (GO), Ceullular Component(CC)}
+#' \item{KEGG}{Kyoto Encyclopedia of Genes and Genomes}
+#' \item{MKEGG}{KEGG Modules}
+#' \item{REACTOME}{Reactome}
+#' }
 #'
 #' @format \code{\link{data.table}} columns for each item in the \code{\link{list}} contain:
 #' \describe{
