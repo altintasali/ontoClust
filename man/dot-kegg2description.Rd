@@ -10,7 +10,7 @@
 \item{kegg.id}{KEGG ID}
 }
 \value{
-A \code{\link{data.frame}} with KEGG IDs and its descriptions.
+A \code{\link{data.frame}} with KEGG IDs and their descriptions.
 }
 \description{
 Engine for \code{\link{kegg2description}}

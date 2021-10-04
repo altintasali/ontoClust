@@ -3,7 +3,7 @@
 #'
 #' @param kegg.id KEGG ID
 #'
-#' @return A \code{\link{data.frame}} with KEGG IDs and its descriptions.
+#' @return A \code{\link{data.frame}} with KEGG IDs and their descriptions.
 #'
 #' @importFrom KEGGREST keggGet
 #'
