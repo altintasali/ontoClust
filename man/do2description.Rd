@@ -16,8 +16,6 @@ A \code{\link{data.frame}} with DO IDs and their descriptions.
 Disease Ontology (DO) to Description
 }
 \examples{
-\dontrun{
 do.ids <- sample_data$DO$ID[1:3]
 do2description(do.ids)
-}
 }

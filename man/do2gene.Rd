@@ -16,8 +16,9 @@ A list object containing Gene IDs for every DO ID
 Disease Ontology (DO) to Gene ID (ENTREZ)
 }
 \examples{
-\dontrun{
 do.ids <- sample_data$DO$ID[1:3]
 do2gene(do.ids)
 }
+\seealso{
+\code{\link{onto2gene}} for all ontology to gene conversions as well as \code{\link{go2gene}}, \code{\link{kegg2gene}}, \code{\link{reactome2gene}}.
 }

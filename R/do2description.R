@@ -8,10 +8,8 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' do.ids <- sample_data$DO$ID[1:3]
 #' do2description(do.ids)
-#' }
 do2description <- function(do.id){
   DOtable <- unique(as.data.frame(DOTERM)[,c(2,3)])
   colnames(DOtable) <- c("id", "description")
