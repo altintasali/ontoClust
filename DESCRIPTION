@@ -21,11 +21,20 @@ Imports:
     data.table,
     DO.db,
     DOSE,
+    dynamicTreeCut,
     GO.db,
     KEGGREST,
+    linkcomm,
     magrittr,
+    pheatmap,
+    RColorBrewer,
     reactome.db,
+    reshape2,
     stringr,
     utils
 Depends: 
     R (>= 2.10)
+Suggests: 
+    rmarkdown,
+    knitr
+VignetteBuilder: knitr

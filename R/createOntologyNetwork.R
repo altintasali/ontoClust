@@ -1,24 +1,82 @@
+#' Create ontology nextwork
+#' @description Creates a network of ontology terms based on the \code{method} provided.
+#' @param ontology.id A character \code{\link{vector}} of ontology ID from supported ontology databases.
+#' @param weighted Weight calculated by \code{method}. If FALSE (default), no weight is calculated.
+#' @param method Calculated similarity between 2 ontology terms based on the \code{method}. Available methods are:
+#' \describe{
+#' \item{jaccard}{Jaccard Index}
+#' \item{intersect}{Number of intersecting genes}
+#' }
+#'
+#' @return A \code{\link{data.frame}} with columns:
+#' \describe{
+#' \item{source}{Source node}
+#' \item{target}{Target node}
+#' \item{weight}{Weight of edge}
+#' }
+#'
+#' @importFrom reshape2 melt
+#' @export
+#'
+#' @examples
+#' ontology.id <- sample_data$GOBP$ID[1:10]
+#' createOntologyNetwork(ontology.id, method = "jaccard")
+#' createOntologyNetwork(ontology.id, method = "intersect")
 
-ontology.id <- sample_data$GOBP$ID[1:10]
+createOntologyNetwork <- function(ontology.id, weighted = FALSE, method = "jaccard"){
+  ##------------------------------------------------------------------------
+  ## Read ontology >> gene data
+  ##------------------------------------------------------------------------
+  geneData <- go2gene(ontology.id, organism = "hsa") #TODO: Use onto2gene()
 
-jaccardIndex <- function(x, y){
-  jc <- length(intersect(x,y))/length(union(x,y))
-  return(jc)
-}
-createOntologyNetwork <- function(ontology.id, weighted = FALSE, method = "Jaccard"){
-  geneData <- go2gene(ontology.id, organism = "hsa")
+  ##------------------------------------------------------------------------
+  ## Create network
+  ##------------------------------------------------------------------------
+  if(method == "jaccard"){
+    ids <- matrix(1:length(geneData)^2, ncol = length(geneData))
+    ids <- reshape2::melt(upper.tri(ids))
+    ids <- ids[ids$value == TRUE, ]
+    #ids <- expand.grid(seq_along(geneData), seq_along(geneData))
 
-  if(methods == "Jaccard"){
-    ids <- expand.grid(seq_along(geneData), seq_along(geneData))
-    ids <- split(ids, f = "rownames")
     network <- apply(ids, MARGIN = 1, function(x){
-      jc <- jaccardIndex(geneData[[x[1]]], geneData[[x[2]]])
+      networkWeight <- jaccardIndex(geneData[[x[1]]], geneData[[x[2]]])
       out <- data.frame(source = names(geneData)[x[1]],
                         target = names(geneData)[x[2]],
-                        weight = jc)
+                        weight = networkWeight)
       return(out)
     }
-
     )
+    network <- do.call(rbind, network)
+
+  }else if(method == "intersect"){
+    ids <- matrix(1:length(geneData)^2, ncol = length(geneData))
+    ids <- reshape2::melt(upper.tri(ids))
+    ids <- ids[ids$value == TRUE, ]
+
+    network <- apply(ids, MARGIN = 1, function(x){
+      networkWeight <- length(intersect(geneData[[x[1]]], geneData[[x[2]]]))
+      out <- data.frame(source = names(geneData)[x[1]],
+                        target = names(geneData)[x[2]],
+                        weight = networkWeight)
+      return(out)
+    }
+    )
+
+    network <- do.call(rbind, network)
   }
+
+  ##------------------------------------------------------------------------
+  ## Remove 0 weights
+  ##------------------------------------------------------------------------
+  network <- network[network$weight > 0,]
+
+  ##------------------------------------------------------------------------
+  ## Keep weights
+  ##------------------------------------------------------------------------
+  if(!weighted){
+    network <- network[, -3]
+  }
+
+
+  return(network)
 }
