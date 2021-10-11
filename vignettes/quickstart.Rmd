@@ -48,12 +48,12 @@ As you can imagine, it is really hard to go through `r nrow(enrSub)` GO terms ma
 # Creating Ontology Networks 
 In order to create ontology (GO) networks, we need to provide a similarity metric across GO terms in a pairwise fashion. ``ontoClust`` uses Jaccard Similarity Index using the gene content of each ontology term. ``createOntologyNetwork`` function makes this process easy for you. 
 
-For the sake of computation time, let's work with a random subset of those `r nrow(enrSub)` GO terms. 100 terms is ideal for a quick run. 
+For the sake of computation time, let's work with a random subset of those `r nrow(enrSub)` GO terms. 75 terms is ideal for a quick run. 
 
 ```{r subset_data}
-set.seed(666)
-#subsetTerms <- sample(x = enrSub$ID, size = 100)
-subsetTerms <- enrSub$ID[1:100]
+# set.seed(6)
+# subsetTerms <- sample(x = enrSub$ID, size = 100)
+subsetTerms <- enrSub$ID[1:75]
 head(subsetTerms)
 ```
 
@@ -82,10 +82,12 @@ table(oc$ontoClust)
 
 # Plot Ontology Clusters
 ## Heatmap 
-```{r heatmap}
-heatmapOntoClust(oc)
+```{r heatmap, results='hide'}
+heatmapOntoClust(oc, filename = "heatmapOntoClust.png")
 ```
-
+```{r, echo=FALSE, out.width="90%", fig.cap="Heatmap of Ontology Clusters"}
+knitr::include_graphics("heatmapOntoClust.png")
+```
 ## Network Plot
 
 

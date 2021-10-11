@@ -2,17 +2,18 @@
 #'
 #' @param lc Output of \code{\link{getLC}}
 #' @param minClusterSize Minimum number of members in a cluster. Default is 3.
+#' @param verbose Print detailed output. Default is TRUE.
 #'
 #' @return A \code{\link{list}} object with
-#' \describe{
-#' \item{mat}{Binary matrix. Rows: ontologies, columns: link communities}
-#' \item{ontoClust}{data.frame with columns of ontology IDs and link communities}
-#' \item{dist}{Distance matrix of \code{mat}}
-#' \item{hc}{\code{\link{hclust} object}
-#' }
+#' \item{\code{mat}}{Binary matrix. Rows: ontologies, columns: link communities}
+#' \item{\code{ontoClust}}{data.frame with columns of ontology IDs and link communities}
+#' \item{\code{dist}}{Distance matrix of \code{mat}}
+#' \item{\code{hc}}{\code{\link{hclust}} object}
+#'
 #' @export
 #'
 #' @importFrom dynamicTreeCut cutreeDynamic
+#'
 #' @examples
 #' \dontrun{
 #' ontology.id <- sample_data$GOBP$ID[1:100]

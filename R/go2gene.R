@@ -6,6 +6,8 @@
 #' @return A list object containing Gene IDs for every GO ID
 #' @export
 #'
+#' @importFrom AnnotationDbi keys
+#'
 #' @examples
 #' go.ids <- sample_data$GOBP$ID[1:3]
 #' go2gene(go.ids)

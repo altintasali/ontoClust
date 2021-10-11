@@ -10,9 +10,15 @@ getOntoClust(lc, minClusterSize = 3, verbose = TRUE)
 \item{lc}{Output of \code{\link{getLC}}}
 
 \item{minClusterSize}{Minimum number of members in a cluster. Default is 3.}
+
+\item{verbose}{Print detailed output. Default is TRUE.}
 }
 \value{
-
+A \code{\link{list}} object with
+\item{\code{mat}}{Binary matrix. Rows: ontologies, columns: link communities}
+\item{\code{ontoClust}}{data.frame with columns of ontology IDs and link communities}
+\item{\code{dist}}{Distance matrix of \code{mat}}
+\item{\code{hc}}{\code{\link{hclust}} object}
 }
 \description{
 Get clusters of link communitites

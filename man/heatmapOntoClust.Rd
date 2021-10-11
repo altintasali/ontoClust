@@ -9,6 +9,7 @@ heatmapOntoClust(
   clusterCols = NULL,
   clusterLC = FALSE,
   rowNames = c("id", "description")[2],
+  filename = NA,
   ...
 )
 }
@@ -24,6 +25,8 @@ heatmapOntoClust(
 \item{id}{Ontology ID}
 \item{description}{Description of the ontology ID (default)}
 }}
+
+\item{filename}{Default NULL. If provided with .pdf or .png extensions, function generates a PDF or PNG output file.}
 
 \item{...}{Additional parameters for \code{\link{pheatmap}}}
 }

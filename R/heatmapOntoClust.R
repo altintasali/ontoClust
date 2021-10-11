@@ -8,7 +8,9 @@
 #' \item{id}{Ontology ID}
 #' \item{description}{Description of the ontology ID (default)}
 #' }
+#' @param filename Default NULL. If provided with .pdf or .png extensions, function generates a PDF or PNG output file.
 #' @param ... Additional parameters for \code{\link{pheatmap}}
+#'
 #'
 #' @return Pheatmap
 #' @export
@@ -26,6 +28,7 @@ heatmapOntoClust <- function(oc,
                           clusterCols = NULL,
                           clusterLC = FALSE,
                           rowNames = c("id", "description")[2],
+                          filename = NA,
                           ...
 ){
   ##------------------------------------------------------------------------
@@ -85,7 +88,7 @@ heatmapOntoClust <- function(oc,
                   legend = FALSE,
                   labels_row = desc$TERM,
                   silent = FALSE,
-                  #filename = "heatmap_v01.pdf"
+                  filename = filename
   )
 
 }
