@@ -20,11 +20,19 @@
 #' lc <- getLC(network)
 #' oc <- getOntoClust(lc)
 #' }
-getOntoClust <- function(lc, minClusterSize = 3){
+getOntoClust <- function(lc, minClusterSize = 3, verbose = TRUE){
   ##------------------------------------------------------------------------
   #TODO: make class and report less
   ##------------------------------------------------------------------------
 
+  ##------------------------------------------------------------------------
+  ## Verbosity
+  ##------------------------------------------------------------------------
+  if(verbose){
+    verb <- 2
+  }else{
+    verb <- 0
+  }
 
   ##------------------------------------------------------------------------
   ## Create binary matrix
@@ -47,7 +55,8 @@ getOntoClust <- function(lc, minClusterSize = 3){
   clusts <- cutreeDynamic(dendro = hc,
                           minClusterSize = minClusterSize,
                           distM =  as.matrix(distmat),
-                          method = c("hybrid","tree")[1] )
+                          method = c("hybrid","tree")[1],
+                          verbose = verb)
   names(clusts) <- rownames(as.matrix(distmat))
 
   out <- list(mat = mat,

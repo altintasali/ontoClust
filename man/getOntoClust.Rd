@@ -4,7 +4,7 @@
 \alias{getOntoClust}
 \title{Get clusters of link communitites}
 \usage{
-getOntoClust(lc, minClusterSize = 3)
+getOntoClust(lc, minClusterSize = 3, verbose = TRUE)
 }
 \arguments{
 \item{lc}{Output of \code{\link{getLC}}}

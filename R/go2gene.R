@@ -20,6 +20,15 @@ go2gene <- function(go.id, organism = "hsa"){
   GOtable <- paste0(gsub(".db$", "", x = lib2load), "GO2ALLEGS")
   GOtable <- eval(parse(text = GOtable))
 
+  keyID <- keys(GOtable)
+  inds <- go.id %in% keyID
+  if(any(inds == FALSE)){
+    warning(paste0("[ WARN] Following GO IDs are not found in the GO database:",
+                   "\n",
+                   paste(go.id[!inds], collapse = ", ")))
+    go.id <- go.id[inds]
+  }
+
   out <- as.list(GOtable[go.id])
   out <- lapply(out, unique)
 

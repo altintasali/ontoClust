@@ -58,7 +58,7 @@ head(subsetTerms)
 ```
 
 Now that we have the terms to work with, we can create the network.
-```{r build_network}
+```{r build_network, message=FALSE, warning=FALSE}
 network <- createOntologyNetwork(subsetTerms)
 head(network)
 ```
@@ -67,15 +67,15 @@ head(network)
 In order to create link communities, we need to provide the network of GO terms. The ``getLC`` will help us to do that.
 
 ```{r getLC}
-lc <- getLC(network)
+lc <- getLC(network, verbose = FALSE)
 lc
 ```
 
 # Creating Clusters of Ontology Terms
 Finally, we can calculate the clusters of GO Terms:
 
-```{r getOntoClust}
-oc <- getOntoClust(lc)
+```{r getOntoClust, message=FALSE, warning=FALSE}
+oc <- getOntoClust(lc, verbose = FALSE)
 str(oc)
 table(oc$ontoClust)
 ```

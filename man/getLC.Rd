@@ -4,12 +4,14 @@
 \alias{getLC}
 \title{Get Link Communities}
 \usage{
-getLC(network, hcmethod = "single")
+getLC(network, hcmethod = "single", verbose = TRUE)
 }
 \arguments{
 \item{network}{A \code{\link{data.frame}} representing network with columns "source", "target" and "weight" (optional).}
 
 \item{hcmethod}{Hierarchical clustering method. See \code{\link{hclust}} for details. Recommended to use "single" for unwighted networks and "ward.D2" for weighted networks.}
+
+\item{verbose}{Print detailed output. Default is TRUE.}
 }
 \value{
 An object of class \code{\link{linkcomm}}. See \code{\link{getLinkCommunities}} for details.
