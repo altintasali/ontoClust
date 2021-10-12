@@ -42,8 +42,8 @@ install_github("altintasali/ontoClust")
 
 For a quick start, I recommend checking the example code provided in the vignette:
 
-```{r vignette, results='hide'}
+```r 
 library(ontoClust)
-vignette("quickstart", package = "ontoClust")
+vignette(topic = "quickstart", package = "ontoClust")
 ```
 

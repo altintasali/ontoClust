@@ -34,8 +34,5 @@ vignette:
 
 ``` r
 library(ontoClust)
-#> 
-vignette("quickstart", package = "ontoClust")
-#> starting httpd help server ...
-#>  done
+vignette(topic = "quickstart", package = "ontoClust")
 ```
