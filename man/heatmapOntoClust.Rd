@@ -10,6 +10,7 @@ heatmapOntoClust(
   clusterLC = FALSE,
   rowNames = c("id", "description")[2],
   filename = NA,
+  silent = FALSE,
   ...
 )
 }
@@ -27,6 +28,8 @@ heatmapOntoClust(
 }}
 
 \item{filename}{Default NULL. If provided with .pdf or .png extensions, function generates a PDF or PNG output file.}
+
+\item{silent}{Default FALSE. If TRUE, the function does not plot the heatmap to the graphics device.}
 
 \item{...}{Additional parameters for \code{\link{pheatmap}}}
 }

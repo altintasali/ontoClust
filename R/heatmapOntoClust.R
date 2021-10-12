@@ -9,6 +9,7 @@
 #' \item{description}{Description of the ontology ID (default)}
 #' }
 #' @param filename Default NULL. If provided with .pdf or .png extensions, function generates a PDF or PNG output file.
+#' @param silent Default FALSE. If TRUE, the function does not plot the heatmap to the graphics device.
 #' @param ... Additional parameters for \code{\link{pheatmap}}
 #'
 #'
@@ -29,6 +30,7 @@ heatmapOntoClust <- function(oc,
                           clusterLC = FALSE,
                           rowNames = c("id", "description")[2],
                           filename = NA,
+                          silent = FALSE,
                           ...
 ){
   ##------------------------------------------------------------------------
@@ -87,7 +89,7 @@ heatmapOntoClust <- function(oc,
                   treeheight_col = 50 * .6,
                   legend = FALSE,
                   labels_row = desc$TERM,
-                  silent = FALSE,
+                  silent = silent,
                   filename = filename
   )
 

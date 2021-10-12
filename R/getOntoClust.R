@@ -1,4 +1,4 @@
-#' Get clusters of link communitites
+#' Get clusters of link communities
 #'
 #' @param lc Output of \code{\link{getLC}}
 #' @param minClusterSize Minimum number of members in a cluster. Default is 3.

@@ -7,7 +7,7 @@
 go2description(go.id)
 }
 \arguments{
-\item{go.id}{A vector of DO IDs}
+\item{go.id}{A vector of GO IDs}
 }
 \value{
 A \code{\link{data.frame}} with GO IDs and their descriptions.

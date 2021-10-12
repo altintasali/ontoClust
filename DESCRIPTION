@@ -22,6 +22,7 @@ Imports:
     DO.db,
     DOSE,
     dynamicTreeCut,
+    ggraph,
     GO.db,
     KEGGREST,
     linkcomm,
@@ -36,5 +37,7 @@ Depends:
     R (>= 2.10)
 Suggests: 
     rmarkdown,
-    knitr
+    knitr,
+    spelling
 VignetteBuilder: knitr
+Language: en-US

@@ -83,11 +83,19 @@ table(oc$ontoClust)
 # Plot Ontology Clusters
 ## Heatmap 
 ```{r heatmap, results='hide'}
-heatmapOntoClust(oc, filename = "heatmapOntoClust.png")
+heatmapOntoClust(oc, filename = "heatmapOntoClust.png", silent = TRUE)
 ```
 ```{r, echo=FALSE, out.width="90%", fig.cap="Heatmap of Ontology Clusters"}
 knitr::include_graphics("heatmapOntoClust.png")
 ```
 ## Network Plot
-
+```{r ggraph}
+# library(ggraph)
+# library(igraph)
+# g <- graph_from_data_frame(network)
+# ggraph(g, layout = "kk") + geom_node_point() + geom_edge_link() +   geom_node_text(aes(label = name), repel=T) + theme_bw()
+#layout <- create_layout(g, layout = 'kk')
+#ggraph(layout)
+#ggraph(g, circular = F)
+```
 
