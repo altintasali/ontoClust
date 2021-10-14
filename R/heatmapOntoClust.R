@@ -12,13 +12,14 @@
 #' @param silent Default FALSE. If TRUE, the function does not plot the heatmap to the graphics device.
 #' @param ... Additional parameters for \code{\link{pheatmap}}
 #'
+#' @return \code{\link{pheatmap}} object
 #'
-#' @return Pheatmap
 #' @export
 #' @importFrom pheatmap pheatmap
 #' @importFrom RColorBrewer brewer.pal
 #' @importFrom grDevices colorRampPalette rainbow
 #' @importFrom stats dist hclust quantile
+#'
 #' @examples
 #' ontology.id <- sample_data$GOBP$ID[1:50]
 #' network <- createOntologyNetwork(ontology.id, method = "jaccard", weighted = FALSE)
