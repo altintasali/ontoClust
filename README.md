@@ -24,7 +24,7 @@ Then, you basically install the `ontoClust` package by using:
 
 ``` r
 library(devtools)
-install_github("altintasali/ontoClust")
+install_github("altintasali/ontoClust", build_vignettes = TRUE)
 ```
 
 ## Quick Start
@@ -36,3 +36,16 @@ vignette:
 library(ontoClust)
 vignette(topic = "quickstart", package = "ontoClust")
 ```
+
+# News and TO-DOs
+
+This package is still under development. Due to alpha testing stage, it
+currently only supports **GO terms** for **human**.
+
+**TO-DOs:**
+
+-   Network plot
+-   Support for other ontology terms (KEGG, REACTOME )
+-   Support for other species (mouse, rat etc.)
+-   Plots will show view for multiple contrasts/groups
+-   Analysis with using terms from multiple ontology database

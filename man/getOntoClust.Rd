@@ -2,7 +2,7 @@
 % Please edit documentation in R/getOntoClust.R
 \name{getOntoClust}
 \alias{getOntoClust}
-\title{Get clusters of link communitites}
+\title{Get clusters of link communities}
 \usage{
 getOntoClust(lc, minClusterSize = 3, verbose = TRUE)
 }
@@ -21,7 +21,7 @@ A \code{\link{list}} object with
 \item{\code{hc}}{\code{\link{hclust}} object}
 }
 \description{
-Get clusters of link communitites
+Get clusters of link communities
 }
 \examples{
 \dontrun{
