@@ -34,7 +34,7 @@ heatmapOntoClust(
 \item{...}{Additional parameters for \code{\link{pheatmap}}}
 }
 \value{
-Pheatmap
+\code{\link{pheatmap}} object
 }
 \description{
 Create a heatmap of ontology clusters
