@@ -2,7 +2,7 @@
 % Please edit documentation in R/createOntologyNetwork.R
 \name{createOntologyNetwork}
 \alias{createOntologyNetwork}
-\title{Create ontology nextwork}
+\title{Create ontology network}
 \usage{
 createOntologyNetwork(ontology.id, weighted = FALSE, method = "jaccard")
 }
