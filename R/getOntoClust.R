@@ -71,6 +71,7 @@ getOntoClust <- function(lc, minClusterSize = 3, verbose = TRUE){
               link_communities = lc$nodeclusters,
               ontology_clusters = clusts,
               LCmatrix = mat,
+              lc = lc,
               dist = distmat,
               hc = hc)
 
