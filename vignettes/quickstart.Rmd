@@ -77,7 +77,7 @@ Finally, we can calculate the clusters of GO Terms:
 ```{r getOntoClust, message=FALSE, warning=FALSE}
 oc <- getOntoClust(lc, verbose = FALSE)
 str(oc)
-table(oc$ontoClust)
+table(oc$ontology_clusters)
 ```
 
 # Plot Ontology Clusters

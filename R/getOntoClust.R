@@ -13,6 +13,7 @@
 #' @export
 #'
 #' @importFrom dynamicTreeCut cutreeDynamic
+#' @importFrom data.table as.data.table setnames setkey `:=`
 #'
 #' @examples
 #' \dontrun{
@@ -58,12 +59,13 @@ getOntoClust <- function(lc, minClusterSize = 3, verbose = TRUE){
   ## Create output
   ##------------------------------------------------------------------------
   res <- as.data.table(lc$nodeclusters)
-  res <- res[, paste(cluster, collapse = ","), by = "node"]
+  res <- res[, paste(get("cluster"), collapse = ","), by = "node"]
 
   clust_df <- data.frame(node = names(clusts), clust = clusts)
   res <- merge(res, clust_df, by = "node")
   setnames(res, c("ontology", "linkcommunity", "cluster"))
-  setkey(res, c("cluster"))
+  setkey(res, "cluster")
+  res[, eval("description") := go2description(get("ontology"))[,2]]
 
   out <- list(result = as.data.frame(res),
               link_communities = lc$nodeclusters,
