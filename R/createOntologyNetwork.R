@@ -1,4 +1,4 @@
-#' Create ontology nextwork
+#' Create ontology network
 #' @description Creates a network of ontology terms based on the \code{method} provided.
 #' @param ontology.id A character \code{\link{vector}} of ontology ID from supported ontology databases.
 #' @param weighted Weight calculated by \code{method}. If FALSE (default), no weight is calculated.
@@ -76,7 +76,6 @@ createOntologyNetwork <- function(ontology.id, weighted = FALSE, method = "jacca
   if(!weighted){
     network <- network[, -3]
   }
-
 
   return(network)
 }

@@ -5,7 +5,7 @@
 #' \item{DO}{Disease Ontology}
 #' \item{GOBP}{Gene Ontology (GO), Biological Process (BP)}
 #' \item{GOMF}{Gene Ontology (GO), Molecular Function (MF)}
-#' \item{GOCC}{Gene Ontology (GO), Ceullular Component(CC)}
+#' \item{GOCC}{Gene Ontology (GO), Cellular Component(CC)}
 #' \item{KEGG}{Kyoto Encyclopedia of Genes and Genomes}
 #' \item{MKEGG}{KEGG Modules}
 #' \item{REACTOME}{Reactome}
