@@ -1,7 +1,7 @@
 #' Create a heatmap of ontology clusters
 #'
 #' @param oc Output from \code{\link{getOntoClust}}
-#' @param clusterCols A character \code{\link{vector}} with length of clusters (rows). If NULL (default), \code{\link{rainbow}} colors will be used.
+#' @param clusterColors A character \code{\link{vector}} with length of clusters (rows). If NULL (default), \code{\link{rainbow}} colors will be used.
 #' @param clusterLC Logical to cluster link communities (columns).
 #' @param rowNames Display text for ontologies. It can be either
 #' \describe{
@@ -26,7 +26,7 @@
 #' oc <- getOntoClust(lc)
 #' heatmapOntoClust(oc)
 heatmapOntoClust <- function(oc,
-                          clusterCols = NULL,
+                          clusterColors = NULL,
                           clusterLC = FALSE,
                           rowNames = c("id", "description")[2],
                           filename = NA,
@@ -50,17 +50,17 @@ heatmapOntoClust <- function(oc,
   ##------------------------------------------------------------------------
   ## Annotation
   ##------------------------------------------------------------------------
-  rowAnnot <- data.frame(Cluster = oc$ontoClust)
+  rowAnnot <- data.frame(Cluster = oc$ontology_clusters)
   rowAnnot$Cluster <- as.factor(rowAnnot$Cluster)
 
   ##------------------------------------------------------------------------
   ## Colors
   ##------------------------------------------------------------------------
-  if(is.null(clusterCols)){
-    rowCols <- rainbow(length(unique(oc$ontoClust))) #brewer.pal(n = length(unique(oc$ontoClust)), name = "Set1")
-    names(rowCols) <- seq_along((unique(oc$ontoClust)))
+  if(is.null(clusterColors)){
+    rowCols <- rainbow(length(unique(oc$ontology_clusters))) #brewer.pal(n = length(unique(oc$ontology_clusters)), name = "Set1")
+    names(rowCols) <- seq_along((unique(oc$ontology_clusters)))
   }else{
-    rowCols <- clusterCols
+    rowCols <- clusterColors
   }
 
   annotCols <- list(Cluster = rowCols)

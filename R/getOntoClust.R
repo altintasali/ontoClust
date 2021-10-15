@@ -38,14 +38,7 @@ getOntoClust <- function(lc, minClusterSize = 3, verbose = TRUE){
   ##------------------------------------------------------------------------
   ## Create binary matrix
   ##------------------------------------------------------------------------
-  mat <- reshape2::dcast(lc$nodeclusters, node ~ cluster)
-  rowname <- mat[,1]
-  mat <- mat[,-1]
-  mat[!is.na(mat)] <- 1
-  mat[is.na(mat)] <- 0
-  mat <- apply(mat, 2, as.numeric)
-  rownames(mat) <- rowname
-  mat <- mat[, unique(lc$nodeclusters$cluster)]
+  mat <- createLCmatrix(lc)
 
   ##------------------------------------------------------------------------
   ## Calculate clusters
@@ -60,10 +53,55 @@ getOntoClust <- function(lc, minClusterSize = 3, verbose = TRUE){
                           verbose = verb)
   names(clusts) <- rownames(as.matrix(distmat))
 
-  out <- list(mat = mat,
-              ontoClust = clusts,
+
+  ##------------------------------------------------------------------------
+  ## Create output
+  ##------------------------------------------------------------------------
+  res <- as.data.table(lc$nodeclusters)
+  res <- res[, paste(cluster, collapse = ","), by = "node"]
+
+  clust_df <- data.frame(node = names(clusts), clust = clusts)
+  res <- merge(res, clust_df, by = "node")
+  setnames(res, c("ontology", "linkcommunity", "cluster"))
+  setkey(res, c("cluster"))
+
+  out <- list(result = as.data.frame(res),
+              link_communities = lc$nodeclusters,
+              ontology_clusters = clusts,
+              LCmatrix = mat,
               dist = distmat,
               hc = hc)
 
   return(out)
+}
+
+
+#' Create a binary matrix of LC members
+#'
+#' @param lc Output of \code{\link{getLC}}
+#' @param includeOutlierLC Include the ontology terms that are not part of a link community. Default FALSE
+#'
+#' @return Binary LC membership \code{\link{matrix}}. Rows: ontology terms, columns: link communities.
+#' @importFrom reshape2 dcast
+#'
+#' @examples
+createLCmatrix <- function(lc, includeOutlierLC = FALSE){
+  mat <- dcast(lc$nodeclusters, node ~ cluster)
+  rowname <- mat[,1]
+  mat <- mat[,-1]
+  mat[!is.na(mat)] <- 1
+  mat[is.na(mat)] <- 0
+  mat <- apply(mat, 2, as.numeric)
+  rownames(mat) <- rowname
+  mat <- mat[, unique(lc$nodeclusters$cluster)]
+
+  # TODO: includeOutlierLC
+  # if(noLCmember){
+  #   notLinked <- dt1$GOdefinition[!dt1$GOdefinition %in% rowname] %>% unique
+  #   mat_notLinked <- matrix(data = 0, nrow = length(notLinked), ncol = ncol(mat))
+  #   rownames(mat_notLinked) <- notLinked
+  #   mat <- rbind(mat, mat_notLinked)
+  #
+  # }
+  return(mat)
 }

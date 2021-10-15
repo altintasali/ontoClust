@@ -6,7 +6,7 @@
 \usage{
 heatmapOntoClust(
   oc,
-  clusterCols = NULL,
+  clusterColors = NULL,
   clusterLC = FALSE,
   rowNames = c("id", "description")[2],
   filename = NA,
@@ -17,7 +17,7 @@ heatmapOntoClust(
 \arguments{
 \item{oc}{Output from \code{\link{getOntoClust}}}
 
-\item{clusterCols}{A character \code{\link{vector}} with length of clusters (rows). If NULL (default), \code{\link{rainbow}} colors will be used.}
+\item{clusterColors}{A character \code{\link{vector}} with length of clusters (rows). If NULL (default), \code{\link{rainbow}} colors will be used.}
 
 \item{clusterLC}{Logical to cluster link communities (columns).}
 
