@@ -102,6 +102,7 @@ plotOntoNetwork(oc)
 ```{r ggraph2}
 plotOntoNetwork(oc, facet_by = "ontology_cluster")
 ```
+## Word Cloud
 
 
 # Session Info

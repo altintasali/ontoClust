@@ -11,8 +11,7 @@ plotOntoNetwork(
   size_label_ontology = 2,
   alpha_edge = 0.2,
   alpha_node = 1,
-  facet_by = NULL,
-  silent = FALSE
+  facet_by = NULL
 )
 }
 \arguments{
