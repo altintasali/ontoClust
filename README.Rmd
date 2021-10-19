@@ -18,11 +18,14 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-This packages clusters gene ontology terms. Currently supported gene ontology databases are 
-    Gene Ontology (GO): Biological Process (BP), Molecular Function (MF), Cellular Component (CC);
-    Kyoto Encyclopedia of Genes and Genomes (KEGG): KEGG and KEGG Modules;
-    REACTOME;
-    Disease Ontology (DO).
+This packages clusters gene ontology terms. Currently supported gene ontology databases are
+
+- Gene Ontology (GO): Biological Process (BP)
+- Gene Ontology (GO): Molecular Function (MF)
+- Gene Ontology (GO): Cellular Component (CC)
+- Kyoto Encyclopedia of Genes and Genomes (KEGG): KEGG and KEGG Modules
+- REACTOME
+- Disease Ontology (DO)
     
 
 ## Installation
@@ -52,8 +55,9 @@ vignette(topic = "quickstart", package = "ontoClust")
 This package is still under development. 
 
 **News:**
+
 - Network plot with facets
-- Support for other ontology terms (KEGG, REACTOME)
+- Support for other ontology terms (GO, KEGG, REACTOME, DO)
 - Support for human, mouse and rat
 
 

@@ -7,10 +7,15 @@
 <!-- badges: end -->
 
 This packages clusters gene ontology terms. Currently supported gene
-ontology databases are Gene Ontology (GO): Biological Process (BP),
-Molecular Function (MF), Cellular Component (CC); Kyoto Encyclopedia of
-Genes and Genomes (KEGG): KEGG and KEGG Modules; REACTOME; Disease
-Ontology (DO).
+ontology databases are
+
+-   Gene Ontology (GO): Biological Process (BP)
+-   Gene Ontology (GO): Molecular Function (MF)
+-   Gene Ontology (GO): Cellular Component (CC)
+-   Kyoto Encyclopedia of Genes and Genomes (KEGG): KEGG and KEGG
+    Modules
+-   REACTOME
+-   Disease Ontology (DO)
 
 ## Installation
 
@@ -39,13 +44,18 @@ vignette(topic = "quickstart", package = "ontoClust")
 
 # News and TO-DOs
 
-This package is still under development. Due to alpha testing stage, it
-currently only supports **GO terms** for **human**.
+This package is still under development.
+
+**News:**
+
+-   Network plot with facets
+-   Support for other ontology terms (GO, KEGG, REACTOME, DO)
+-   Support for human, mouse and rat
 
 **TO-DOs:**
 
--   Network plot
--   Support for other ontology terms (KEGG, REACTOME )
--   Support for other species (mouse, rat etc.)
+-   Support for KEGG Modules
+-   Support for other species (yeast etc)
 -   Plots will show view for multiple contrasts/groups
 -   Analysis with using terms from multiple ontology database
+-   Implement Word Clouds (with dendrograms)
