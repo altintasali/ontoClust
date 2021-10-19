@@ -9,9 +9,11 @@
 #' @import magrittr
 #'
 #' @examples
+#' \dontrun{
 #' id <- lapply(sample_data, function(x){head(x$ID)})
 #' id <- do.call(c, id)
 #' onto2gene(id)
+#' }
 onto2gene <- function(id, organism = "hsa"){
   if(!is.character(id)){
     stop("No valid ID provided. 'id' should be character vector.")
