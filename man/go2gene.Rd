@@ -9,7 +9,7 @@ go2gene(go.id, organism = "hsa")
 \arguments{
 \item{go.id}{GO ID (e.g. GO:0045333)}
 
-\item{organism}{Organism identifier. Currently human (\code{hsa}), mouse (\code{mmu}) and rat (\code{rnp}) are supported. Full list of organism IDs can be found [here](https://www.genome.jp/kegg/catalog/org_list.html).}
+\item{organism}{Organism identifier. Currently human (\code{hsa}), mouse (\code{mmu}) and rat (\code{rno}) are supported. Full list of organism IDs can be found [here](https://www.genome.jp/kegg/catalog/org_list.html).}
 }
 \value{
 A list object containing Gene IDs for every GO ID

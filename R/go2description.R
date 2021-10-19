@@ -16,6 +16,7 @@ go2description <- function(go.id){
   out <- suppressMessages(
     select(x = GO.db, keys = go.id, columns =c("GOID", "TERM", "ONTOLOGY"), keytype = "GOID")
   )
-  colnames(out)
+  colnames(out) <- c("id", "description", "db")
+  out$db <- paste0("GO:", out$db)
   return(out)
 }

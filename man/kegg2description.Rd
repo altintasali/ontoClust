@@ -10,7 +10,7 @@ kegg2description(kegg.id)
 \item{kegg.id}{A vector of KEGG IDs}
 }
 \value{
-A \code{\link{data.frame}} with KEGG IDs and its descriptions.
+A \code{\link{data.frame}} with KEGG IDs and their descriptions.
 }
 \description{
 KEGG ID to Description

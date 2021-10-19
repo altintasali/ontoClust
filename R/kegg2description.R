@@ -23,7 +23,7 @@
 #'
 #' @param kegg.id A vector of KEGG IDs
 #'
-#' @return A \code{\link{data.frame}} with KEGG IDs and its descriptions.
+#' @return A \code{\link{data.frame}} with KEGG IDs and their descriptions.
 #' @export
 #'
 #' @examples
@@ -35,6 +35,7 @@ kegg2description <- function(kegg.id){
   id_names <- sapply(kegg.id, .kegg2description)
   out <- data.frame(id = kegg.id, description = id_names)
   rownames(out) <- NULL
+  out$db <- "KEGG"
   return(out)
 }
 

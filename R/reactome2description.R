@@ -17,6 +17,7 @@ reactome2description <- function(reactome.id){
   descs <- subset(reactomePATHID2NAME, Lkeys = reactome.id) %>% as.data.frame #%>% toTable
   colnames(descs) <- c("id", "description")
   descs$description <- str_split_fixed(string = descs$description, pattern = ": ", n = 2)[,2]
+  descs$db <- "REACTOME"
   return(descs)
 }
 

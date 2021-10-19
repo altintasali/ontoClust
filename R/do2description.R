@@ -17,6 +17,7 @@ do2description <- function(do.id){
   rownames(DOtable) <- DOtable[,1]
   out <- DOtable[do.id, ]
   rownames(out) <- NULL
+  out$db <- "DO"
   return(out)
 }
 

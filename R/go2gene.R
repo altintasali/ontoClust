@@ -1,7 +1,7 @@
 #' Gene Ontology (GO) to Gene ID
 #'
 #' @param go.id GO ID (e.g. GO:0045333)
-#' @param organism Organism identifier. Currently human (\code{hsa}), mouse (\code{mmu}) and rat (\code{rnp}) are supported. Full list of organism IDs can be found [here](https://www.genome.jp/kegg/catalog/org_list.html).
+#' @param organism Organism identifier. Currently human (\code{hsa}), mouse (\code{mmu}) and rat (\code{rno}) are supported. Full list of organism IDs can be found [here](https://www.genome.jp/kegg/catalog/org_list.html).
 #'
 #' @return A list object containing Gene IDs for every GO ID
 #' @export

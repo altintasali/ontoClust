@@ -35,6 +35,7 @@ mkegg2description <- function(mkegg.id){
   id_names <- sapply(mkegg.id, .mkegg2description)
   out <- data.frame(id = mkegg.id, description = id_names)
   rownames(out) <- NULL
+  out$db <- "MKEGG"
   return(out)
 }
 
