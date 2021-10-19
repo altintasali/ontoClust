@@ -1,7 +1,7 @@
 Package: ontoClust
 Type: Package
 Title: Cluster Gene Ontology Terms
-Version: 0.1.1
+Version: 0.2.0
 Author: Ali Altintas <altintas.ali@gmail.com>
 Maintainer: Ali Altintas <altintas.ali@gmail.com>
 Description: This packages clusters gene ontology terms. Currently supported gene ontology databases are 
