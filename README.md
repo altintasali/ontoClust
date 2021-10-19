@@ -54,6 +54,7 @@ This package is still under development.
 
 **TO-DOs:**
 
+-   Same color scheme across plot functions
 -   Support for KEGG Modules
 -   Support for other species (yeast etc)
 -   Plots will show view for multiple contrasts/groups
