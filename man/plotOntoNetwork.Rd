@@ -11,7 +11,8 @@ plotOntoNetwork(
   size_label_ontology = 2,
   alpha_edge = 0.2,
   alpha_node = 1,
-  facet_by = NULL
+  facet_by = NULL,
+  background = TRUE
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ plotOntoNetwork(
 \item{alpha_node}{Transparency parameter for nodes (ontology clusters). Default is 1 (fully opaque).}
 
 \item{facet_by}{Facets to draw. Default is NULL, thus no facets are drawn. It can be 'ontology_cluster' or 'link_community'}
+
+\item{background}{Keep the nodes/edges in the background when facetted. Default is TRUE. If FALSE, only edges/nodes that connects each ontology-cluster/link-community will be drawn.}
 }
 \value{
 \code{\link{ggraph}} plot
@@ -37,10 +40,12 @@ Plot Network of Ontology Clusters
 }
 \examples{
 \dontrun{
-ontology.id <- sample_data$GOBP$ID[1:100]
+ontology.id <- sample_data$GOBP$ID[1:50]
 network <- createOntologyNetwork(ontology.id, method = "jaccard", weighted = FALSE)
 lc <- getLC(network)
 oc <- getOntoClust(lc)
 plotOntoNetwork(oc)
+plotOntoNetwork(oc, facet_by = c("ontology_cluster", "link_community")[1])
+plotOntoNetwork(oc, facet_by = c("ontology_cluster", "link_community")[1], background = TRUE)
 }
 }

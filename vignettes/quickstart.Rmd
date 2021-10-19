@@ -102,6 +102,11 @@ plotOntoNetwork(oc)
 ```{r ggraph2}
 plotOntoNetwork(oc, facet_by = "ontology_cluster")
 ```
+```{r ggraph3}
+plotOntoNetwork(oc, facet_by = "ontology_cluster", background = FALSE)
+```
+
+
 ## Word Cloud
 
 
