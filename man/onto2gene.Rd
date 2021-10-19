@@ -18,7 +18,9 @@ A \code{\link{list}} object containing gene IDs for each ontology ID
 Ontology ID to gene IDs
 }
 \examples{
+\dontrun{
 id <- lapply(sample_data, function(x){head(x$ID)})
 id <- do.call(c, id)
 onto2gene(id)
+}
 }

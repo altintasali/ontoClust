@@ -16,7 +16,9 @@ A \code{\link{data.frame}} with ontology IDs and their descriptions.
 Ontology ID to Ontology Descriptions
 }
 \examples{
+\dontrun{
 id <- lapply(sample_data, function(x){head(x$ID)})
 id <- do.call(c, id)
 onto2description(id)
+}
 }
