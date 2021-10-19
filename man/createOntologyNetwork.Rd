@@ -4,7 +4,12 @@
 \alias{createOntologyNetwork}
 \title{Create ontology network}
 \usage{
-createOntologyNetwork(ontology.id, weighted = FALSE, method = "jaccard")
+createOntologyNetwork(
+  ontology.id,
+  weighted = FALSE,
+  method = "jaccard",
+  organism = "hsa"
+)
 }
 \arguments{
 \item{ontology.id}{A character \code{\link{vector}} of ontology ID from supported ontology databases.}
@@ -16,6 +21,8 @@ createOntologyNetwork(ontology.id, weighted = FALSE, method = "jaccard")
 \item{jaccard}{Jaccard Index}
 \item{intersect}{Number of intersecting genes}
 }}
+
+\item{organism}{Organism identifier (required for GO annotations). Default is "hsa". Currently human (\code{hsa}), mouse (\code{mmu}) and rat (\code{rno}) are supported. Full list of organism IDs can be found [here](https://www.genome.jp/kegg/catalog/org_list.html).}
 }
 \value{
 A \code{\link{data.frame}} with columns:
@@ -31,5 +38,4 @@ Creates a network of ontology terms based on the \code{method} provided.
 \examples{
 ontology.id <- sample_data$GOBP$ID[1:10]
 createOntologyNetwork(ontology.id, method = "jaccard")
-createOntologyNetwork(ontology.id, method = "intersect")
 }

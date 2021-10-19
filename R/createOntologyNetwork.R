@@ -1,5 +1,6 @@
 #' Create ontology network
 #' @description Creates a network of ontology terms based on the \code{method} provided.
+#'
 #' @param ontology.id A character \code{\link{vector}} of ontology ID from supported ontology databases.
 #' @param weighted Weight calculated by \code{method}. If FALSE (default), no weight is calculated.
 #' @param method Calculated similarity between 2 ontology terms based on the \code{method}. Available methods are:
@@ -7,6 +8,7 @@
 #' \item{jaccard}{Jaccard Index}
 #' \item{intersect}{Number of intersecting genes}
 #' }
+#' @param organism Organism identifier (required for GO annotations). Default is "hsa". Currently human (\code{hsa}), mouse (\code{mmu}) and rat (\code{rno}) are supported. Full list of organism IDs can be found [here](https://www.genome.jp/kegg/catalog/org_list.html).
 #'
 #' @return A \code{\link{data.frame}} with columns:
 #' \describe{
@@ -21,13 +23,13 @@
 #' @examples
 #' ontology.id <- sample_data$GOBP$ID[1:10]
 #' createOntologyNetwork(ontology.id, method = "jaccard")
-#' createOntologyNetwork(ontology.id, method = "intersect")
 
-createOntologyNetwork <- function(ontology.id, weighted = FALSE, method = "jaccard"){
+createOntologyNetwork <- function(ontology.id, weighted = FALSE, method = "jaccard", organism = "hsa"){
   ##------------------------------------------------------------------------
   ## Read ontology >> gene data
   ##------------------------------------------------------------------------
-  geneData <- go2gene(ontology.id, organism = "hsa") #TODO: Use onto2gene()
+  geneData <- onto2gene(ontology.id, organism = organism)
+  geneData <- geneData[!is.na(names(geneData))]
 
   ##------------------------------------------------------------------------
   ## Create network
