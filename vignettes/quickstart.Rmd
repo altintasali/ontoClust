@@ -68,7 +68,7 @@ network <- createOntologyNetwork(subsetTerms)
 head(network)
 ```
 
-# Creating "Link Communities" 
+# Creating **Link Communities**
 In order to create link communities, we need to provide the network of GO terms. The ``getLC`` will help us to do that.
 
 ```{r getLC}
@@ -76,7 +76,7 @@ lc <- getLC(network, verbose = FALSE)
 lc
 ```
 
-# Creating Clusters of Ontology Terms
+# Creating **Ontology Clusters**
 Finally, we can calculate the clusters of GO Terms:
 
 ```{r getOntoClust, message=FALSE, warning=FALSE}
@@ -108,7 +108,11 @@ plotOntoNetwork(oc, facet_by = "ontology_cluster", background = FALSE)
 
 
 ## Word Cloud
-
+```{r wordCloud, warning=FALSE}
+wc <- createWordCloud(oc)
+# plot top 10 words for each ontology clusters
+plotWordCloud(wc, n = 10)
+```
 
 # Session Info
 ```{r sessionInfo}

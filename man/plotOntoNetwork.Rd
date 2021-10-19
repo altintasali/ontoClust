@@ -12,7 +12,8 @@ plotOntoNetwork(
   alpha_edge = 0.2,
   alpha_node = 1,
   facet_by = NULL,
-  background = TRUE
+  background = TRUE,
+  label_n = 4
 )
 }
 \arguments{
@@ -31,6 +32,8 @@ plotOntoNetwork(
 \item{facet_by}{Facets to draw. Default is NULL, thus no facets are drawn. It can be 'ontology_cluster' or 'link_community'}
 
 \item{background}{Keep the nodes/edges in the background when facetted. Default is TRUE. If FALSE, only edges/nodes that connects each ontology-cluster/link-community will be drawn.}
+
+\item{label_n}{Print top words to the facet labels. Default is 4. If NULL, NA or <=0, no words will be labelled.}
 }
 \value{
 \code{\link{ggraph}} plot
