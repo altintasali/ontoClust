@@ -14,7 +14,7 @@
     db <- "KEGG"
   }else if(grepl("M\\d+", ontology.id)){
     db <- "MKEGG"
-  }else if(grepl("R-HSA-\\d+", ontology.id)){
+  }else if(grepl("R-[A-Z]{3}-\\d+", ontology.id)){
     db <- "REACTOME"
   }else{
     if(NA.if.no.match){
