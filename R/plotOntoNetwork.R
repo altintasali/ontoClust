@@ -31,7 +31,7 @@ plotOntoNetwork <- function(oc,
                             alpha_node = 1,
                             facet_by = NULL #c("ontology_cluster", "link_community")[1]
 ){
-
+  `Link Community` <- `Ontology Cluster` <- description <- NULL
   ##------------------------------------------------------------------------
   ## Build network
   ##------------------------------------------------------------------------
