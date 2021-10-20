@@ -99,15 +99,18 @@ knitr::include_graphics("heatmapOntoClust.png")
 plotOntoNetwork(oc)
 ```
 
-```{r ggraph2}
-plotOntoNetwork(oc, facet_by = "ontology_cluster")
+```{r ggraph2, warning=FALSE}
+plotOntoNetwork(oc, facet_by = "ontology_cluster", label_n = 3)
 ```
-```{r ggraph3}
-plotOntoNetwork(oc, facet_by = "ontology_cluster", background = FALSE)
+```{r ggraph3, warning=FALSE}
+plotOntoNetwork(oc, facet_by = "ontology_cluster", background = FALSE, label_n = 3)
 ```
 
 
 ## Word Cloud
+
+Although Word Clouds are not the best way of scientific visualization, it can be helpful to get a quick grasp of the ontology clusters. You can create Word Clouds by using the functions below. 
+
 ```{r wordCloud, warning=FALSE}
 wc <- createWordCloud(oc)
 # plot top 10 words for each ontology clusters
