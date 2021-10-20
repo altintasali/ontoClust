@@ -17,3 +17,11 @@ Binary LC membership \code{\link{matrix}}. Rows: ontology terms, columns: link c
 \description{
 Create a binary matrix of LC members
 }
+\examples{
+\dontrun{
+ontology.id <- sample_data$GOBP$ID[1:100]
+network <- createOntologyNetwork(ontology.id, method = "jaccard", weighted = FALSE)
+lc <- getLC(network)
+createLCmatrix(lc)
+}
+}

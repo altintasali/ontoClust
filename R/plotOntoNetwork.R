@@ -14,6 +14,8 @@
 #' @export
 #'
 #' @importFrom igraph graph_from_data_frame
+#' @importFrom data.table setDT
+#' @importFrom BiocGenerics eval
 #' @import ggplot2
 #' @import ggraph
 #'
@@ -37,7 +39,7 @@ plotOntoNetwork <- function(oc,
                             background = TRUE,
                             label_n = 4
 ){
-  `Link Community` <- `Ontology Cluster` <- description <- NULL
+  `Link Community` <- `Ontology Cluster` <- description <- .SD <- NULL
   ##------------------------------------------------------------------------
   ## Build network
   ##------------------------------------------------------------------------

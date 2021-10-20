@@ -18,7 +18,7 @@ BugReports: https://github.com/altintasali/ontoClust/issues
 Imports: 
     AnnotationDbi,
     Biobase,
-    data.table,
+    BiocGenerics,
     DO.db,
     DOSE,
     dynamicTreeCut,
@@ -34,6 +34,7 @@ Imports:
     RColorBrewer,
     reactome.db,
     reshape2,
+    data.table,
     stringr,
     tm,
     utils

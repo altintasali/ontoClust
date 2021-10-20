@@ -88,8 +88,15 @@ getOntoClust <- function(lc, minClusterSize = 3, verbose = TRUE){
 #' @importFrom reshape2 dcast
 #'
 #' @examples
+#' \dontrun{
+#' ontology.id <- sample_data$GOBP$ID[1:100]
+#' network <- createOntologyNetwork(ontology.id, method = "jaccard", weighted = FALSE)
+#' lc <- getLC(network)
+#' createLCmatrix(lc)
+#' }
+
 createLCmatrix <- function(lc, includeOutlierLC = FALSE){
-  mat <- dcast(lc$nodeclusters, node ~ cluster)
+  mat <- reshape2::dcast(lc$nodeclusters, node ~ cluster)
   rowname <- mat[,1]
   mat <- mat[,-1]
   mat[!is.na(mat)] <- 1

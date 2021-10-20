@@ -15,7 +15,7 @@
 #'
 #' @import ggwordcloud
 #' @import ggplot2
-#' @import data.table
+#' @importFrom data.table setDT
 #' @importFrom utils head
 #' @export
 #'
@@ -27,7 +27,7 @@
 #' wc <- createWordCloud(oc)
 #' plotWordCloud(wc, n = 10, freq = TRUE, norm.freq = TRUE)
 plotWordCloud <- function(wc, n = Inf, freq = TRUE, norm.freq = TRUE){
-  word <- NULL #to avoid NOTES from devtools::check()
+  word <- .SD <- NULL #to avoid NOTES from devtools::check()
 
   if(!is.infinite(n)){
     data.table::setDT(wc)
