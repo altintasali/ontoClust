@@ -4,6 +4,8 @@
 # ontoClust
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/altintasali/ontoClust/workflows/R-CMD-check/badge.svg)](https://github.com/altintasali/ontoClust/actions)
 <!-- badges: end -->
 
 This packages clusters gene ontology terms. Currently supported gene
